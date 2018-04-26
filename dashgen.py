@@ -3,6 +3,7 @@ import subprocess
 import os
 import json
 import sys
+import pprint
 arg="."
 arr=os.listdir(arg)
 cmd = ["md5sum ","sha1sum ","sha256sum ","sha512sum "] 
@@ -19,6 +20,6 @@ for files in arr:
 		hash[c]=outof
 	hash["size"]=os.stat(files).st_size 
 	result[files]=hash
-print json.dumps(result)
-
+#print json.dumps(result)
+pprint.pprint(result)
 
