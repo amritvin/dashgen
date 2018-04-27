@@ -1,1 +1,1 @@
-python /usr/local/dashgen.py
+python2 /usr/local/dashgen.py
