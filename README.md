@@ -20,3 +20,4 @@ Output of dashgen is a json string, that follows
 			<size>	:"size of (file)"
 		        }} 
 		        
+//Space in the name is an issue to be solved, will patch it soon
