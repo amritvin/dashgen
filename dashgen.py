@@ -31,7 +31,8 @@ for files in arr:
  		tot=tot-1
  		continue
  	count=count+1
- 	progress(count+1,tot,"processing")
+ 	if "-q" not in (str(sys.argv)):
+ 		progress(count,tot,"processing")
 	for c in cmd:
 		cc=c+files
 		proc = subprocess.Popen(cc.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -42,7 +43,9 @@ for files in arr:
 	hash["size"]=os.stat(files).st_size 
 	result[files]=hash
 stop = timeit.default_timer()
-os.system('clear')
+if "-q" not in (str(sys.argv)):
+	os.system('clear')
 #print json.dumps(result)
 pprint.pprint(result)
-print "\n\t\t\tDone!  ?(`_`)?  Hashes of "+str(count)+" files calculated in "+ str(stop-start)+" secs\n"
+if "-vq" not in (str(sys.argv)):
+	print "\n\t\t\tDone!  ?(`_`)?  Hashes of "+str(count)+" files calculated in "+ str(stop-start)+" secs\n"
